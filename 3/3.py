@@ -9,9 +9,7 @@ part 1
 """
 pattern = '\#(\d+)(\s\@\s)(\d+),(\d+):\s(\d+)x(\d+)'
 
-length = 0
-height = 0
-
+#init grid
 matrix = [[0 for x in range(1000)] for y in range(1000)]
 overlapping = 0
 
@@ -21,12 +19,8 @@ for line in inputs:
     
     for i in range(_x, _x+_w):        
         for j in range(_y, _y+_h):
-            if matrix[j][i] == 0:
-                matrix[j][i] = 1
-            else:
-                # increment
-                matrix[j][i] += 1
-                
+            # since it starts as 0, I can skip the check and just add 1 at each time I encounter it
+            matrix[j][i] += 1                
 
 for col in matrix:
     for row in col:
